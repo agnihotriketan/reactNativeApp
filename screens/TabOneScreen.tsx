@@ -6,6 +6,7 @@ import {
   NativeTouchEvent,
   // ScrollView,
   FlatList,
+  I18nManager,
 } from "react-native";
 
 import EditScreenInfo from "../components/EditScreenInfo";
@@ -22,6 +23,9 @@ export default function TabOneScreen() {
   const [goalArr, SetGoalArr] = useState<goalObject[]>([]);
   const [IsAddMode, SetIsAddMode] = useState<boolean>(false);
 
+  console.log("rendering");
+  console.log(goalArr);
+
   const addGoal = (goalText: string) => {
     SetGoalArr((g: any) => [
       ...goalArr,
@@ -31,6 +35,7 @@ export default function TabOneScreen() {
   };
 
   const removeGoalHandler = (goalId: string) => {
+    console.log("To be deleted" + goalId);
     SetGoalArr((c) => {
       return goalArr.filter((g) => g.key != goalId);
     });
